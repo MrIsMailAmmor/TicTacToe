@@ -1,16 +1,14 @@
 package com.example.tictactoe
 
-import android.app.Application
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import java.lang.Exception
-import kotlin.random.Random
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,38 +30,38 @@ class MainActivity : AppCompatActivity() {
         R.id.button8 -> cellId = 8
         R.id.button9 -> cellId = 9
     }
-        PlayGame(cellId,buChoice)
+        playGame(cellId,buChoice)
         checkWinner()
     }
     private var player1= ArrayList<Int>()
     private var player2 = ArrayList<Int>()
-    var activePlayer = 1
+    private var activePlayer = 1
 
-    fun PlayGame(number:Int, buchoice : Button){
+    private fun playGame(number:Int, buttonChoice : Button){
 
         if(activePlayer==1){
-            buchoice.text="X"
-            buchoice.setBackgroundColor(Color.BLUE)
+            buttonChoice.text="X"
+            buttonChoice.setBackgroundColor(Color.BLUE)
             player1.add(number)
             activePlayer =2
 
 
         }else{
-            buchoice.text="O"
-            buchoice.setBackgroundColor(Color.RED)
+            buttonChoice.text="O"
+            buttonChoice.setBackgroundColor(Color.RED)
             player2.add(number)
             activePlayer=1
 
 
         }
-        buchoice.isEnabled=false
-        
+        buttonChoice.isEnabled=false
+
     }
 
-    var P1Score = 0
-    var P2Score = 0
+    private var p1Score = 0
+    private var p2Score = 0
 
-    fun checkWinner(){
+    private fun checkWinner(){
         var winner =- 1
 
         if((player1.contains(1)&&player1.contains(2)&&player1.contains(3)) || (player1.contains(4)&&player1.contains(5)&&player1.contains(6)) || (player1.contains(7)&&player1.contains(8)&&player1.contains(9)) || (player1.contains(1)&&player1.contains(5)&&player1.contains(9)) || (player1.contains(3)&&player1.contains(5)&&player1.contains(7))){
@@ -83,13 +81,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         //check if Draw
-        var buttonTaken= ArrayList<Int>()
+        val buttonTaken= ArrayList<Int>()
         for (cellId in 0..9){
             if(player1.contains(cellId) || player2.contains(cellId)){
                 buttonTaken.add(cellId)
             }
         }
-        if (buttonTaken.size === 9  && winner===-1){
+        if (buttonTaken.size == 9  && winner==-1){
 
             redo(findViewById(R.id.redo))
             buttonTaken.clear()
@@ -97,29 +95,29 @@ class MainActivity : AppCompatActivity() {
         }
 
         if(winner!=-1){
-            if(winner ===1){
+            if(winner ==1){
                 Toast.makeText(this, "Player 1 Won the game", Toast.LENGTH_SHORT).show()
                 redo(findViewById(R.id.redo))
-                P1Score++
-                ScoreText.text="Player 1 : $P1Score Player 2 : $P2Score"
+                p1Score++
+                ScoreText.text="Player 1 : $p1Score Player 2 : $p2Score"
 
             }
-            if(winner ===2){
+            if(winner ==2){
                 Toast.makeText(this, "Player 2 Won the game", Toast.LENGTH_SHORT).show()
                 redo(findViewById(R.id.redo))
-                P2Score++
-                ScoreText.text="Player 1 : $P1Score Player 2 : $P2Score"
+                p2Score++
+                ScoreText.text="Player 1 : $p1Score Player 2 : $p2Score"
             }
-            if(winner===3){
+            if(winner==3){
                 Toast.makeText(this, "Draw", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
 
-        fun redo(view: View) {
+       private fun redo(view: View) {
             try {
-                var listBtn = arrayOf(button, button2, button3, button4, button5, button6, button7, button8, button9)
+                val listBtn = arrayOf(button, button2, button3, button4, button5, button6, button7, button8, button9)
                 val it: Iterator<Button> = listBtn.iterator()
 
                 while (it.hasNext()) {
@@ -138,7 +136,7 @@ class MainActivity : AppCompatActivity() {
 
     fun redoBtn(view: View) {
         try {
-            var listBtn = arrayOf(button, button2, button3, button4, button5, button6, button7, button8, button9)
+            val listBtn = arrayOf(button, button2, button3, button4, button5, button6, button7, button8, button9)
             val it: Iterator<Button> = listBtn.iterator()
 
             while (it.hasNext()) {
@@ -150,9 +148,9 @@ class MainActivity : AppCompatActivity() {
             player1.clear()
             player2.clear()
 
-            P1Score= 0
-            P2Score=0
-            ScoreText.text="Player 1 : $P1Score Player 2 : $P2Score"
+            p1Score= 0
+            p2Score=0
+            ScoreText.text="Player 1 : $p1Score Player 2 : $p2Score"
 
         }catch (e:Exception){
             println(e)
@@ -161,7 +159,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        fun autoPlay(){
+        /*fun autoPlay(){
 
         val emptyList = ArrayList<Int>()
 
@@ -172,7 +170,7 @@ class MainActivity : AppCompatActivity() {
         }
         val random = (emptyList.size..0).random()
 
-    }
+    }*/
 
 }
 
