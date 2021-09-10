@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import java.lang.Exception
+import kotlin.concurrent.thread
 
 
 class MainActivity : AppCompatActivity() {
@@ -97,6 +98,7 @@ class MainActivity : AppCompatActivity() {
         if(winner!=-1){
             if(winner ==1){
                 Toast.makeText(this, "Player 1 Won the game", Toast.LENGTH_SHORT).show()
+                Thread.sleep(1_000)
                 redo(findViewById(R.id.redo))
                 p1Score++
                 ScoreText.text="Player 1 : $p1Score Player 2 : $p2Score"
@@ -104,12 +106,14 @@ class MainActivity : AppCompatActivity() {
             }
             if(winner ==2){
                 Toast.makeText(this, "Player 2 Won the game", Toast.LENGTH_SHORT).show()
+                Thread.sleep(1_000)
                 redo(findViewById(R.id.redo))
                 p2Score++
                 ScoreText.text="Player 1 : $p1Score Player 2 : $p2Score"
             }
             if(winner==3){
                 Toast.makeText(this, "Draw", Toast.LENGTH_SHORT).show()
+                Thread.sleep(1_000)
             }
         }
     }

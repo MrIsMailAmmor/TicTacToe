@@ -33,10 +33,10 @@
                 android:background="#9E9999"
                 android:backgroundTint="@color/white"
                 android:onClick="buClick"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textColorLink="#FFFFFF"
                 android:textSize="24pt"
-                app:backgroundTint="@color/white"
+                app:backgroundTint="@color/red"
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <Button
@@ -48,13 +48,13 @@
                 android:layout_marginEnd="2pt"
                 android:layout_marginBottom="2pt"
                 android:background="#9E9999"
-                android:backgroundTint="@color/white"
+                android:backgroundTint="@color/black"
                 android:hapticFeedbackEnabled="false"
                 android:onClick="buClick"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textColorLink="#FFFFFF"
                 android:textSize="24pt"
-                app:backgroundTint="@color/white"
+                app:backgroundTint="@color/red"
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <Button
@@ -67,10 +67,10 @@
                 android:background="#9E9999"
                 android:backgroundTint="@color/white"
                 android:onClick="buClick"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textColorLink="#FFFFFF"
                 android:textSize="24pt"
-                app:backgroundTint="@color/white"
+                app:backgroundTint="@color/red"
                 tools:ignore="SpeakableTextPresentCheck" />
         </TableRow>
 
@@ -89,10 +89,10 @@
                 android:background="#9E9999"
                 android:backgroundTint="@color/white"
                 android:onClick="buClick"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textColorLink="#FFFFFF"
                 android:textSize="24pt"
-                app:backgroundTint="@color/white" />
+                app:backgroundTint="@color/red" />
 
             <Button
                 android:id="@+id/button5"
@@ -104,10 +104,10 @@
                 android:background="#9E9999"
                 android:backgroundTint="@color/white"
                 android:onClick="buClick"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textColorLink="#FFFFFF"
                 android:textSize="24pt"
-                app:backgroundTint="@color/white" />
+                app:backgroundTint="@color/red" />
 
             <Button
                 android:id="@+id/button4"
@@ -119,10 +119,10 @@
                 android:background="#9E9999"
                 android:backgroundTint="@color/white"
                 android:onClick="buClick"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textColorLink="#FFFFFF"
                 android:textSize="24pt"
-                app:backgroundTint="@color/white" />
+                app:backgroundTint="@color/red" />
         </TableRow>
 
         <TableRow
@@ -140,10 +140,10 @@
                 android:background="#9E9999"
                 android:backgroundTint="@color/white"
                 android:onClick="buClick"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textColorLink="#FFFFFF"
                 android:textSize="24pt"
-                app:backgroundTint="@color/white" />
+                app:backgroundTint="@color/red" />
 
             <Button
                 android:id="@+id/button8"
@@ -155,10 +155,10 @@
                 android:background="#9E9999"
                 android:backgroundTint="@color/white"
                 android:onClick="buClick"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textColorLink="#FFFFFF"
                 android:textSize="24pt"
-                app:backgroundTint="@color/white" />
+                app:backgroundTint="@color/red" />
 
             <Button
                 android:id="@+id/button7"
@@ -170,10 +170,10 @@
                 android:background="#9E9999"
                 android:backgroundTint="@color/white"
                 android:onClick="buClick"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textColorLink="#FFFFFF"
                 android:textSize="24pt"
-                app:backgroundTint="@color/white" />
+                app:backgroundTint="@color/red" />
 
         </TableRow>
 
