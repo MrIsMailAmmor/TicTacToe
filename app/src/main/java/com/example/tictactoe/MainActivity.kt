@@ -3,12 +3,14 @@ package com.example.tictactoe
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import java.lang.Exception
 import kotlin.concurrent.thread
+import kotlin.random.Random
 
 
 class MainActivity : AppCompatActivity() {
@@ -42,14 +44,13 @@ class MainActivity : AppCompatActivity() {
 
         if(activePlayer==1){
             buttonChoice.text="X"
-            buttonChoice.setBackgroundColor(Color.BLUE)
             player1.add(number)
-            activePlayer =2
+            activePlayer = 2
+            autoPlay()
 
 
         }else{
             buttonChoice.text="O"
-            buttonChoice.setBackgroundColor(Color.RED)
             player2.add(number)
             activePlayer=1
 
@@ -97,23 +98,26 @@ class MainActivity : AppCompatActivity() {
 
         if(winner!=-1){
             if(winner ==1){
+
                 Toast.makeText(this, "Player 1 Won the game", Toast.LENGTH_SHORT).show()
-                Thread.sleep(1_000)
+
                 redo(findViewById(R.id.redo))
                 p1Score++
                 ScoreText.text="Player 1 : $p1Score Player 2 : $p2Score"
 
             }
             if(winner ==2){
+
                 Toast.makeText(this, "Player 2 Won the game", Toast.LENGTH_SHORT).show()
-                Thread.sleep(1_000)
+
                 redo(findViewById(R.id.redo))
                 p2Score++
                 ScoreText.text="Player 1 : $p1Score Player 2 : $p2Score"
             }
             if(winner==3){
+
                 Toast.makeText(this, "Draw", Toast.LENGTH_SHORT).show()
-                Thread.sleep(1_000)
+
             }
         }
     }
@@ -163,18 +167,40 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        /*fun autoPlay(){
+       private fun autoPlay(){
 
         val emptyList = ArrayList<Int>()
 
         for (cellId in 1..9){
-            if(!player1.contains(cellId) || !player2.contains(cellId)){
+            if(!(player1.contains(cellId) || player2.contains(cellId))){
                 emptyList.add(cellId)
+            }else if(emptyList.size === 0){
+
+                checkWinner()
             }
         }
-        val random = (emptyList.size..0).random()
+            val random :Int= Random.nextInt(emptyList.size-0)+0
 
-    }*/
+            val cellId = emptyList[random]
+
+           var buChoice:Button = when(cellId){
+              1-> button
+              2-> button2
+              3-> button3
+              4-> button4
+              5-> button5
+              6-> button6
+              7-> button7
+              8-> button8
+              9-> button9
+              else -> {
+                 button
+              }
+          }
+
+        playGame(cellId,buChoice)
+
+    }
 
 }
 
